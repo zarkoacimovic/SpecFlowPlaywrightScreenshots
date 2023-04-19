@@ -7,12 +7,12 @@ public class LoginPage
     private IPage _page;
     public LoginPage(IPage page) => _page = page;
     
-    private ILocator _lnkLogin => _page.Locator("text=Login");
-    private ILocator _txtUserName => _page.Locator("#UserName");
-    private ILocator _txtPassword => _page.Locator("#Password");
-    private ILocator _btnLogin => _page.Locator("text=Log in");
-    private ILocator _lnkEmployeeDetails => _page.Locator("text='Employee Details'");    
-    private ILocator _lnkEmployeeLists => _page.Locator("text='Employee List'");
+    private ILocator _lnkLogin => _page.Locator("text=Swag Labs");
+    private ILocator _txtUserName => _page.Locator("#user-name");
+    private ILocator _txtPassword => _page.Locator("#password");
+    private ILocator _btnLogin => _page.Locator("#login-button");
+    private ILocator _lnkEmployeeDetails => _page.Locator("text='Sauce Labs Backpack'");    
+    private ILocator _lnkEmployeeLists => _page.Locator("text='Sauce Labs Bike Light'");
     
     public async Task ClickLogin()
     {
@@ -21,7 +21,7 @@ public class LoginPage
             await _lnkLogin.ClickAsync();
         }, new PageRunAndWaitForNavigationOptions
         {
-            UrlString = "**/Login"  
+            UrlString = "**/inventory.html"
         });
     }
 

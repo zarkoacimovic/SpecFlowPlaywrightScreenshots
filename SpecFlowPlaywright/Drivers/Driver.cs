@@ -18,20 +18,17 @@ public class Driver : IDisposable
 
     public async void Dispose()
     {
-        if (_browser != null )
+        if (_browser != null)
         {
-            //context = await Browser.NewContextAsync();
-
-
-            await context.Tracing.StopAsync(new TracingStopOptions
+            await Page.Context.Tracing.StopAsync(new TracingStopOptions
             {
-                Path = "C:\\Users\\zarko.acimovic\\Playwright\\Zarko2.zip" //+ context.ToString()
+                Path = "video2.zip" 
             });
 
             await context.CloseAsync();
             await _browser.CloseAsync();
         }
-        //_browser?.CloseAsync();
+        
     }
 
     private async Task<IPage> InitializePlaywright()
@@ -44,29 +41,20 @@ public class Driver : IDisposable
             Headless = false
         });
 
-        context = await _browser.NewContextAsync(new BrowserNewContextOptions
-        {
-            ViewportSize = new ViewportSize() { Width = 1920, Height = 1080 },
-            RecordVideoDir = "C:\\Users\\zarko.acimovic\\Playwright\\videos",
-            AcceptDownloads = true,
-            ColorScheme = ColorScheme.Dark
-        });
 
-        
-        await context.Tracing.StartAsync(new TracingStartOptions
+        IPage _page = await _browser.NewPageAsync();
+
+        await _page.Context.Tracing.StartAsync(new TracingStartOptions
         {
-            Title = "zare23" + context.ToString(), //Note this is for MSTest only. 
+            Title = "zare23care", //Note this is for MSTest only. 
             Screenshots = true,
             Snapshots = true,
             Sources = true
         });
 
-
-
-        //Page
-        return await _browser.NewPageAsync();
+        return _page;
     }
 
 
-    
+
 }

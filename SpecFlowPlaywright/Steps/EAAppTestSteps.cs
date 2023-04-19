@@ -25,10 +25,10 @@ public sealed class EAAppTestSteps
         await _loginPage.Login((string)data.UserName, (string)data.Password);
     }
 
-    [Given(@"I navigate to appliacation")]
+    [Given(@"I navigate to application")]
     public void GivenINavigateToAppliacation()
     {
-        _driver.Page.GotoAsync("http://www.eaapp.somee.com");
+        _driver.Page.GotoAsync("https://www.saucedemo.com/");
     }
 
     [Given(@"I click login link")]
@@ -36,6 +36,8 @@ public sealed class EAAppTestSteps
     {
         await _loginPage.ClickLogin();
     }
+
+   
 
     [Then(@"I see Employee Lists")]
     public async Task ThenISeeEmployeeLists()

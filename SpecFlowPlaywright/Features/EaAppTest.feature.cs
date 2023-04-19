@@ -103,21 +103,18 @@ namespace SpecFlowPlaywright.Features
             {
                 this.ScenarioStart();
 #line 5
-        testRunner.Given("I navigate to appliacation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 6
-        testRunner.And("I click login link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+        testRunner.Given("I navigate to application", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                             "UserName",
                             "Password"});
                 table1.AddRow(new string[] {
-                            "admin",
-                            "password"});
-#line 7
+                            "standard_user",
+                            "secret_sauce"});
+#line 6
         testRunner.And("I enter following login details", ((string)(null)), table1, "And ");
 #line hidden
-#line 10
+#line 9
         testRunner.Then("I see Employee Lists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
